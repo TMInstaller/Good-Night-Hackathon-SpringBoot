@@ -4,6 +4,7 @@ import com.techeer.hackathon.domain.review.entity.Review;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -16,6 +17,7 @@ import java.util.List;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
+@DynamicInsert
 @Table(name = "RESTAURANT")
 public class Restaurant {
     @Id

@@ -5,14 +5,18 @@ import com.techeer.hackathon.domain.restaurant.entity.Restaurant;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
+@DynamicInsert
 @Table(name = "REVIEW")
 public class Review {
     @Id
@@ -22,7 +26,7 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
-    private Restaurant restaurantName;
+    private Restaurant restaurant;
     // 리뷰 목록 조회 - 레스토랑 명을 반환합니다
     // 리뷰 조회 - 하나의 레스토랑명을 반환합니다
 
@@ -47,7 +51,7 @@ public class Review {
             String reviewName,
             String reviewContent
     ){
-        this.restaurantName = restaurant;
+        this.restaurant = restaurant;
         this.reviewName = reviewName;
         this.reviewContent = reviewContent;
     }
