@@ -1,2 +1,4 @@
-package com.techeer.hackathon.domain.review.repository;public class ReviewRepository {
+package com.techeer.hackathon.domain.review.repository;
+
+public class ReviewRepository {
 }
