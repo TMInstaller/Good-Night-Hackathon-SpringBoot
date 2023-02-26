@@ -1,7 +1,6 @@
 package com.techeer.hackathon.domain.review.entity;
 
 
-import com.techeer.hackathon.domain.restaurant.entity.Restaurant;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
